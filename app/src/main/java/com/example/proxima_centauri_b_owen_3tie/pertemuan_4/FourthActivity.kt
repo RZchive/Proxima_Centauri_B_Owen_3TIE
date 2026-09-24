@@ -11,11 +11,13 @@ import com.example.proxima_centauri_b_owen_3tie.MainActivity
 import com.example.proxima_centauri_b_owen_3tie.R
 import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityFourthBinding
 import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class FourthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFourthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.e("onCreate", "Fourth Activity dibuat pertama kali")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityFourthBinding.inflate(layoutInflater)
@@ -25,11 +27,30 @@ class FourthActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        val name = intent.getStringExtra("name")
+        val from = intent.getStringExtra("from")
+        val age = intent.getIntExtra("age",0)
         binding.btnToMain.setOnClickListener {
-            Log.e("Klik Button Submit", "Pindah Halaman")
+            Log.e("Data Intent","Nama: $name , Usia: $age, Asal: $from")
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
+        binding.btnShowSnackbar.setOnClickListener {
+            Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
+                .setAction("Tutup"){
+                    Log.e("Info Snackbar","Snackbar ditutup")
+                }
+                .show()
+        }
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.e("onStart", "onStart: Fourth Activity terlihat di layar")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("onDestroy", "Fourth Activity dihapus dari stack")
     }
 }
