@@ -1,53 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
     tools:context=".pertemuan3.ThirdActivity">
 
-    <Button
-        android:id="@+id/btnKirim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_kirim"
-        android:backgroundTint="@color/gray"
-        android:fontFamily="@font/bebasneue_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNoTujuan"
-        app:layout_constraintVertical_bias="0.098" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white" />
 
-    <EditText
-        android:id="@+id/inputNoTujuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/Nomor_Tujuan"
-        android:backgroundTint="@color/green"
-        android:fontFamily="@font/bebasneue_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="118dp"
-        android:layout_height="121dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputNoTujuan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826"
-        app:srcCompat="@drawable/smartphonelogo" />
+        <Button
+            android:id="@+id/btnKirim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_kirim"
+            android:backgroundTint="@color/gray"
+            android:fontFamily="@font/bebasneue_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNoTujuan"
+            app:layout_constraintVertical_bias="0.098" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/inputNoTujuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/Nomor_Tujuan"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/bebasneue_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.411" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="118dp"
+            android:layout_height="121dp"
+            app:layout_constraintBottom_toTopOf="@+id/inputNoTujuan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.826"
+            app:srcCompat="@drawable/smartphonelogo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

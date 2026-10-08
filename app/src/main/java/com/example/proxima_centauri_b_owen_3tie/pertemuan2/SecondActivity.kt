@@ -2,12 +2,14 @@ package com.example.proxima_centauri_b_owen_3tie.pertemuan2
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proxima_centauri_b_owen_3tie.R
@@ -17,6 +19,16 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            title = "Second Activity"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -34,6 +46,16 @@ class SecondActivity : AppCompatActivity() {
             Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
 
             Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

@@ -3,6 +3,7 @@ package com.example.proxima_centauri_b_owen_3tie.pertemuan_4
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,9 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.proxima_centauri_b_owen_3tie.MainActivity
 import com.example.proxima_centauri_b_owen_3tie.R
 import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityFourthBinding
-import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-
 
 class FourthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFourthBinding
@@ -22,7 +21,16 @@ class FourthActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "Fourth Activity"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -44,6 +52,17 @@ class FourthActivity : AppCompatActivity() {
                 .show()
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onStart() {
         super.onStart()
         Log.e("onStart", "onStart: Fourth Activity terlihat di layar")
