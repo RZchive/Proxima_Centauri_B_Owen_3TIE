@@ -1,31 +1,27 @@
-package com.example.proxima_centauri_b_owen_3tie.pertemuan_5
+package com.example.proxima_centauri_b_owen_3tie.Home.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
+import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proxima_centauri_b_owen_3tie.R
-import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityFifthBinding
+import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityThirdBinding
 
-class FifthActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityFifthBinding
-
+class ThirdActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFifthBinding.inflate(layoutInflater)
+        binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Activity Fifth"
-            subtitle = "Ini adalah subtitle"
+            title = "Third Activity"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_arrow_back)
@@ -37,29 +33,23 @@ class FifthActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnWebView.setOnClickListener {
-            val intent = Intent(this, WebViewActivity::class.java)
+        binding.btnKirim.setOnClickListener {
+            val noTujuan = binding.inputNoTujuan.text.toString()
+            Log.e("Klik Button Submit", "Tombol berhasil di tekan. Isi dari input Nomor = $noTujuan")
+            
+            val bundle = Bundle()
+            bundle.putString("noTujuan", noTujuan)
+            
+            val intent = Intent(this, ThirdResultActivity::class.java)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
-                true
-            }
-            R.id.action_search -> {
-                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.action_settings -> {
-                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onOptionsItemSelected(item)

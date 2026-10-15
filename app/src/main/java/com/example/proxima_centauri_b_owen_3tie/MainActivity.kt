@@ -7,12 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.proxima_centauri_b_owen_3tie.auth.AuthActivity
 import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityMainBinding
-import com.example.proxima_centauri_b_owen_3tie.pertemuan2.SecondActivity
-import com.example.proxima_centauri_b_owen_3tie.pertemuan3.ThirdActivity
-import com.example.proxima_centauri_b_owen_3tie.pertemuan_4.FourthActivity
-import com.example.proxima_centauri_b_owen_3tie.pertemuan_5.FifthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan2.SecondActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan3.ThirdActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_4.FourthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_5.FifthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_7.SeventhActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -55,6 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
             startActivity(intent)
         }
 

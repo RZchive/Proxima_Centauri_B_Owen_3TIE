@@ -48,6 +48,13 @@
         android:text="Ke Pertemuan 5 (Fifth)" />
 
     <Button
+        android:id="@+id/btnToSeventh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Ke Pertemuan 7 (Seventh)" />
+
+    <Button
         android:id="@+id/btnShowAlertDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

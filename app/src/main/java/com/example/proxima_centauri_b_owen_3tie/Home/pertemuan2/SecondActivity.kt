@@ -1,8 +1,12 @@
-package com.example.proxima_centauri_b_owen_3tie.pertemuan3
+package com.example.proxima_centauri_b_owen_3tie.Home.pertemuan2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -10,32 +14,38 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proxima_centauri_b_owen_3tie.R
 
-class ThirdResultActivity : AppCompatActivity() {
-
+class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_third_result)
+        setContentView(R.layout.activity_second)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
-            title = "Hasil"
+            title = "Second Activity"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
 
-        val bundle = intent.extras
-        val noTujuan = bundle?.getString("noTujuan")
-        
-        val textNomor: TextView = findViewById(R.id.textNomor)
-        textNomor.text = getString(R.string.result_nomor_tujuan, noTujuan)
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // Inisialisasi komponen
+        val inputNama: EditText = findViewById(R.id.inputNama)
+        val btnSubmit: Button = findViewById(R.id.btnSubmit)
+        val textNama: TextView = findViewById(R.id.textNama)
+
+        btnSubmit.setOnClickListener {
+            //Mengambil value dari inputNama dan menampilkan di Logcat
+            val nama = inputNama.text
+            Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
+
+            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
         }
     }
 

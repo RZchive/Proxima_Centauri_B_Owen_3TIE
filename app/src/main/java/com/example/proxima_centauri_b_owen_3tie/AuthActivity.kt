@@ -1,4 +1,4 @@
-package com.example.proxima_centauri_b_owen_3tie.auth
+package com.example.proxima_centauri_b_owen_3tie
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.proxima_centauri_b_owen_3tie.MainActivity
 import com.example.proxima_centauri_b_owen_3tie.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

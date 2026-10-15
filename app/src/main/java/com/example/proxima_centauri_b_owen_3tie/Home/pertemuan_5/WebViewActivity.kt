@@ -1,4 +1,4 @@
-package com.example.proxima_centauri_b_owen_3tie.pertemuan_5
+package com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_5
 
 import android.os.Bundle
 import android.view.MenuItem
