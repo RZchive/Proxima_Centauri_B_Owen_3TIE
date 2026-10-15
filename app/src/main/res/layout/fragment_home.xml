@@ -1,15 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home.HomeFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
         android:fontFamily="@font/bebasneue_regular"
-        android:textSize="10mm"
-        android:text="FRAGMENT HOME" />
-</FrameLayout>
+        android:text="Welcome"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/bebasneue_regular"
+        android:text="Ini Fragment Home"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <Button
+        android:id="@+id/btnToFifth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ke Pertemuan 5 (Fifth)"
+        app:layout_constraintEnd_toEndOf="@+id/btnToSeventh"
+        app:layout_constraintStart_toStartOf="@+id/btnToSeventh"
+        app:layout_constraintTop_toBottomOf="@+id/btnToFourth" />
+
+    <Button
+        android:id="@+id/btnToSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ke Pertemuan 2 (Second)"
+        app:layout_constraintEnd_toEndOf="@+id/btnToThird"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnToThird"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btnToThird"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Ke Pertemuan 3 (Third)"
+        app:layout_constraintEnd_toEndOf="@+id/btnToFourth"
+        app:layout_constraintStart_toStartOf="@+id/btnToFourth"
+        app:layout_constraintTop_toBottomOf="@+id/btnToSecond" />
+
+    <Button
+        android:id="@+id/btnToFourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="Ke Pertemuan 4 (Fourth)"
+        app:layout_constraintEnd_toEndOf="@+id/btnToFifth"
+        app:layout_constraintStart_toStartOf="@+id/btnToFifth"
+        app:layout_constraintTop_toBottomOf="@+id/btnToThird" />
+
+    <Button
+        android:id="@+id/btnToSeventh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="Ke Pertemuan 7 (Seventh)"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowAlertDialog"
+        app:layout_constraintStart_toStartOf="@+id/btnShowAlertDialog"
+        app:layout_constraintTop_toBottomOf="@+id/btnToFifth" />
+
+    <Button
+        android:id="@+id/btnShowAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="Show Alert Dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToSeventh" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#D32F2F"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnShowAlertDialog" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

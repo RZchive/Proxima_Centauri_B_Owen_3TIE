@@ -1,11 +1,22 @@
 package com.example.proxima_centauri_b_owen_3tie.Home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.proxima_centauri_b_owen_3tie.R
+import androidx.appcompat.app.AppCompatActivity
+import com.example.proxima_centauri_b_owen_3tie.AuthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan2.SecondActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan3.ThirdActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_4.FourthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_5.FifthActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_7.SeventhActivity
+import com.example.proxima_centauri_b_owen_3tie.databinding.FragmentHomeBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,43 +29,88 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            title = "Home"
+        }
+
+        binding.btnToSecond.setOnClickListener {
+            val intent = Intent(requireContext(), SecondActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToThird.setOnClickListener {
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToFourth.setOnClickListener {
+            val intent = Intent(requireContext(), FourthActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+            startActivity(intent)
+        }
+
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(requireContext(), FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnShowAlertDialog.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Ya!")
                 }
-            }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Tidak!")
+                }
+                .show()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Konfirmasi Logout")
+                .setMessage("Apakah Anda yakin ingin keluar?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+
+                    dialog.dismiss()
+                    val intent = Intent(requireContext(), AuthActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().finish()
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
+
+
 }
