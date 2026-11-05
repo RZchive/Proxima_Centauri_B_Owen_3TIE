@@ -38,6 +38,10 @@ class HomeFragment : Fragment() {
             title = "Home"
         }
 
+        val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("username", "Pengguna")
+        binding.tvWelcome.text = "Selamat datang, $username!"
+
         binding.btnToSecond.setOnClickListener {
             val intent = Intent(requireContext(), SecondActivity::class.java)
             startActivity(intent)
@@ -91,7 +95,6 @@ class HomeFragment : Fragment() {
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { dialog, _ ->
-                    val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                     val editor = sharedPref.edit()
                     editor.clear()
                     editor.apply()

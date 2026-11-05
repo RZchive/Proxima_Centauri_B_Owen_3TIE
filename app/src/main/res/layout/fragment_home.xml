@@ -5,23 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home.HomeFragment">
+
     <View
         android:id="@+id/background_header"
         android:layout_width="0dp"
-        android:layout_height="190dp"
+        android:layout_height="160dp"
         android:background="@drawable/bg_header_wave"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="1dp"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/transparent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +27,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/bebasneue_regular"
-        android:text="Welcome"
-        android:textSize="50sp"
+        android:text="Selamat Datang!"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -44,95 +42,75 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         android:fontFamily="@font/bebasneue_regular"
         android:text="Ini Fragment Home"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
-
-    <Button
-        android:id="@+id/btnToSecond"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Ke Pertemuan 2 (Second)"
-        app:layout_constraintEnd_toEndOf="@+id/btnToThird"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnToThird"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/btnToThird"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Ke Pertemuan 3 (Third)"
-        app:layout_constraintEnd_toEndOf="@+id/btnToFourth"
-        app:layout_constraintStart_toStartOf="@+id/btnToFourth"
-        app:layout_constraintTop_toBottomOf="@+id/btnToSecond" />
-
-    <Button
-        android:id="@+id/btnToFourth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ke Pertemuan 4 (Fourth)"
-        app:layout_constraintEnd_toEndOf="@+id/btnToFifth"
-        app:layout_constraintStart_toStartOf="@+id/btnToFifth"
-        app:layout_constraintTop_toBottomOf="@+id/btnToThird" />
-
-    <Button
-        android:id="@+id/btnToFifth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ke Pertemuan 5 (Fifth)"
-        app:layout_constraintEnd_toEndOf="@+id/btnToSeventh"
-        app:layout_constraintStart_toStartOf="@+id/btnToSeventh"
-        app:layout_constraintTop_toBottomOf="@+id/btnToFourth" />
-
-    <Button
-        android:id="@+id/btnToSeventh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ke Pertemuan 7 (Seventh)"
-        app:layout_constraintEnd_toEndOf="@+id/btnToNinth"
-        app:layout_constraintStart_toStartOf="@+id/btnToNinth"
-        app:layout_constraintTop_toBottomOf="@+id/btnToFifth" />
-
-    <Button
-        android:id="@+id/btnToNinth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ke Pertemuan 9 (Ninth)"
-        app:layout_constraintEnd_toEndOf="@+id/btnShowAlertDialog"
-        app:layout_constraintStart_toStartOf="@+id/btnShowAlertDialog"
-        app:layout_constraintTop_toBottomOf="@+id/btnToSeventh" />
-
-    <Button
-        android:id="@+id/btnShowAlertDialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Show Alert Dialog"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnToNinth" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
-    <Button
-        android:id="@+id/btnLogout"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#D32F2F"
-        android:text="Logout"
+        android:padding="16dp"
+        app:columnCount="2"
+        app:useDefaultMargins="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnShowAlertDialog" />
+        app:layout_constraintTop_toBottomOf="@+id/background_header">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToSecond"
+            android:text="Ke Pertemuan 2"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToThird"
+            android:text="Ke Pertemuan 3"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToFourth"
+            android:text="Ke Pertemuan 4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToFifth"
+            android:text="Ke Pertemuan 5"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToSeventh"
+            android:text="Ke Pertemuan 7"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToNinth"
+            android:text="Ke Pertemuan 9"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowAlertDialog"
+            android:text="Show Alert"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:backgroundTint="#D32F2F"
+            android:text="Logout"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
