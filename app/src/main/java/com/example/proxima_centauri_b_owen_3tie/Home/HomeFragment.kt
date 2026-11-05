@@ -15,19 +15,10 @@ import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan3.ThirdActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_4.FourthActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_5.FifthActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_7.SeventhActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_9.NinthActivity
 import com.example.proxima_centauri_b_owen_3tie.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -35,8 +26,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -75,6 +65,12 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
@@ -112,5 +108,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

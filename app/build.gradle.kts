@@ -39,8 +39,11 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.gridlayout)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation ("com.github.bumptech.glide:glide:5.0.9")
+    annotationProcessor ("com.github.bumptech.glide:compiler:5.0.9")
 }
