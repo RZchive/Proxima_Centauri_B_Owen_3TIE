@@ -1,10 +1,13 @@
 package com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_11
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proxima_centauri_b_owen_3tie.databinding.ItemProductBinding
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
+import kotlin.math.log
+
 class ProductAdapter(
     private val productList: List<ProductModel>,
     private val onItemClick: (ProductModel) -> Unit
@@ -33,6 +36,7 @@ class ProductAdapter(
             root.setOnClickListener {
                 onItemClick(item)
             }
+            Log.e("output",item.name)
         }
     }
 
