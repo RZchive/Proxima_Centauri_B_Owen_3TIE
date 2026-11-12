@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proxima_centauri_b_owen_3tie.AuthActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan2.SecondActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan3.ThirdActivity
+import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_11.EleventhActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_4.FourthActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_5.FifthActivity
 import com.example.proxima_centauri_b_owen_3tie.Home.pertemuan_7.SeventhActivity
@@ -72,6 +73,11 @@ class HomeFragment : Fragment() {
 
         binding.btnToNinth.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToEleventh.setOnClickListener {
+            val intent = Intent(requireContext(), EleventhActivity::class.java)
             startActivity(intent)
         }
 
