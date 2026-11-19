@@ -1,30 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home.HomeFragment">
 
-    <View
-        android:id="@+id/background_header"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
-        android:background="@drawable/bg_header_wave"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- AppBarLayout dengan Background Motif Wave -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/bg_header_wave"
+        app:elevation="0dp">
+
+        <!-- Toolbar langsung di dalam AppBarLayout -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:titleTextColor="@android:color/white" />
+
+        <!-- Teks Menyapa di dalam AppBarLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/bebasneue_regular"
+                android:text="Ini Fragment Home"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Isi Halaman Utama yang Bisa Di-scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
+
+            <!-- Grid Tombol Navigasi -->
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayoutHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:columnCount="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToSecond"
+                    android:text="Ke Pertemuan 2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToThird"
+                    android:text="Ke Pertemuan 3"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToFourth"
+                    android:text="Ke Pertemuan 4"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToFifth"
+                    android:text="Ke Pertemuan 5"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToSeventh"
+                    android:text="Ke Pertemuan 7"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToNinth"
+                    android:text="Ke Pertemuan 9"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToEleventh"
+                    android:text="Ke Pertemuan 11"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowAlertDialog"
+                    android:text="Show Alert"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogout"
+                    android:backgroundTint="#D32F2F"
+                    android:text="Logout"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <!-- Text Cat Fact -->
+            <TextView
+                android:id="@+id/tvCatFact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Loading cat fact..."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridLayoutHome" />
+
+            <!-- Tombol Refresh -->
+            <Button
+                android:id="@+id/btnRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Refresh"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCatFact" />
+
+            <!-- RecyclerView Galeri Foto -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnRefresh" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvWelcome"
@@ -33,90 +174,8 @@
         android:fontFamily="@font/bebasneue_regular"
         android:text="Selamat Datang!"
         android:textColor="@android:color/white"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        android:textSize="26sp"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/bebasneue_regular"
-        android:text="Ini Fragment Home"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gridLayoutHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        app:columnCount="2"
-        app:useDefaultMargins="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_header">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToSecond"
-            android:text="Ke Pertemuan 2"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToThird"
-            android:text="Ke Pertemuan 3"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToFourth"
-            android:text="Ke Pertemuan 4"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToFifth"
-            android:text="Ke Pertemuan 5"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToSeventh"
-            android:text="Ke Pertemuan 7"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToNinth"
-            android:text="Ke Pertemuan 9"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToEleventh"
-            android:text="Ke Pertemuan 11"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShowAlertDialog"
-            android:text="Show Alert"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogout"
-            android:backgroundTint="#D32F2F"
-            android:text="Logout"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal" />
-
-    </androidx.gridlayout.widget.GridLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
